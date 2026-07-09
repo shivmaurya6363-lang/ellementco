@@ -64,6 +64,11 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .nav-links a.nav-italic { font-style: italic; }
 .btn-phone { background-color: var(--brand-blue); color: var(--brand-white); padding: 12px 22px; border-radius: 50px; font-weight: 600; font-size: 15px; font-style: italic; white-space: nowrap; }
 
+/* ── MOBILE-ONLY ELEMENTS: hidden on desktop ── */
+.hamburger { display: none; }
+.mobile-drawer { display: none; }
+.drawer-overlay { display: none; }
+
 /* ─── 2. HERO CAROUSEL (scrollable + autoplay) ─── */
 .hero-section { background-color: var(--brand-pink); padding: 55px 0 45px; position: relative; overflow: hidden; }
 .hero-carousel { position: relative; height: 560px; max-width: 1400px; margin: 0 auto; }
@@ -279,17 +284,15 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
   .contact-row { grid-template-columns: 1fr; gap: 22px; max-width: 420px; }
 }
 @media (max-width: 600px) {
-  .test-grid, .minikits-grid, .pre-footer, .footer-grid { grid-template-columns: 1fr; }
+
+  /* ── EXISTING FIXES (kept) ── */
+  .minikits-grid, .pre-footer, .footer-grid { grid-template-columns: 1fr; }
   .hero-carousel { height: 320px; }
   .hero-slide { width: 78%; }
   .hero-slide.is-prev { transform: translate(-135%, -50%) scale(0.75); }
   .hero-slide.is-next { transform: translate(35%, -50%) scale(0.75); }
   .course-header h2 { font-size: 34px; }
   .card-title { font-size: 26px; }
-  .calendar-board { padding: 15px; }
-  .calendar-title { font-size: 20px; }
-  .calendar-month { font-size: 18px; }
-  .sticky-note { font-size: 8px; padding: 4px; }
   .wywg-grid { grid-template-columns: repeat(2, 1fr); }
   .text-col h2 { font-size: 40px; }
   .footer-wrapper { padding-top: 60px; }
@@ -300,6 +303,180 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
   .founder-section { padding: 60px 6%; }
   .founder-wave, .founder-wave--top, .founder-wave--bottom { height: 40px; }
   .products-image { height: 420px; }
+
+  /* ── 1. HEADER MOBILE ── */
+  .main-header {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    grid-template-rows: auto auto;
+    align-items: center;
+    padding: 10px 14px;
+    gap: 8px 0;
+  }
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .hamburger span {
+    display: block;
+    height: 2px;
+    width: 22px;
+    background: var(--brand-black);
+    border-radius: 2px;
+  }
+  .logo {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: center;
+  }
+  .logo .logo-top { font-size: 17px; letter-spacing: 4px; }
+  .logo .logo-sub { font-size: 10px; letter-spacing: 2px; }
+  .btn-phone { display: none !important; }
+  .nav-links { display: none !important; }
+  .header-search {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    flex: none;
+  }
+
+  /* ── DRAWER ── */
+  .mobile-drawer {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    top: 0; left: 0;
+    width: 75vw;
+    max-width: 280px;
+    height: 100vh;
+    background: var(--brand-cream);
+    z-index: 1000;
+    padding: 60px 28px 40px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    box-shadow: 4px 0 24px rgba(0,0,0,0.12);
+  }
+  .mobile-drawer.open { transform: translateX(0); }
+  .drawer-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--brand-black);
+    line-height: 1;
+  }
+  .drawer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 12px;
+  }
+  .drawer-nav a {
+    font-family: var(--serif);
+    font-size: 17px;
+    color: var(--brand-black);
+    text-decoration: none;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .drawer-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 999;
+  }
+  .drawer-overlay.open { display: block !important; }
+
+  /* ── 2. COURSE TABS — horizontal scroll ── */
+  .course-filter {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 10px !important;
+    padding-bottom: 4px;
+    margin-bottom: 24px;
+  }
+  .course-filter::-webkit-scrollbar { display: none; }
+  .filter-btn {
+    flex-shrink: 0 !important;
+    white-space: nowrap;
+    font-size: 13px !important;
+    padding: 9px 20px !important;
+  }
+
+  /* ── 3. CALENDAR — scrollable board ── */
+  .calendar-section { padding: 40px 4% 50px; }
+  .calendar-board {
+    padding: 12px 8px 16px;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    height: auto !important;
+    max-height: none !important;
+  }
+  /* Hide vertical scrollbar, style horizontal scrollbar to match brand */
+  .calendar-board::-webkit-scrollbar { height: 4px; width: 0; }
+  .calendar-board::-webkit-scrollbar-track { background: var(--brand-cream); border-radius: 4px; }
+  .calendar-board::-webkit-scrollbar-thumb { background: var(--brand-pink); border-radius: 4px; }
+  .calendar-board { scrollbar-width: thin; scrollbar-color: var(--brand-pink) var(--brand-cream); }
+  .calendar-grid { min-width: 490px; }
+  .calendar-cell { min-height: 55px; height: auto; padding: 3px 2px; }
+  .calendar-day-header { font-size: 10px; padding: 6px 3px; }
+  .day-number { font-size: 10px; }
+  .day-number.circled::after { width: 22px; height: 15px; }
+  .sticky-note {
+    position: relative;
+    top: auto; left: auto;
+    width: auto;
+    transform: none !important;
+    font-size: 7px;
+    padding: 3px 2px;
+    margin-top: 2px;
+    border-radius: 4px;
+    box-shadow: none;
+  }
+  .sticky-note span.online-badge { font-size: 6px; padding: 1px 4px; margin-top: 2px; }
+  .pin {
+    width: 9px;
+    height: 9px;
+    top: -5px;
+  }
+  .pin::after { height: 3px; top: 8px; }
+  .calendar-title { font-size: 15px; }
+  .calendar-month { font-size: 15px; }
+  .notebook-rings { padding: 0 8px; top: -10px; }
+  .ring { width: 8px; height: 18px; border-radius: 6px; }
+
+  /* ── 4. TESTIMONIALS — mobile slider ── */
+  .test-slider-wrap { overflow: hidden; }
+  .test-grid {
+    display: flex !important;
+    gap: 14px;
+    transition: transform 0.42s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: transform;
+    cursor: grab;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+  .test-grid.is-dragging { transition: none; cursor: grabbing; }
+  .test-box { flex: 0 0 85% !important; }
+  .test-section { padding: 40px 5% 60px; }
+  .test-section .section-title { font-size: 34px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-slide { transition: none; }
@@ -310,7 +487,23 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
 
 <!-- ─── 1. HEADER ─── -->
 <div class="top-bar">The Most awaited Online Courses are here</div>
+<!-- Mobile drawer -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <button class="drawer-close" id="drawerClose" aria-label="Close menu">&#10005;</button>
+  <nav class="drawer-nav">
+    <a href="https://ellementconailacademy.graphy.com/s/pages/home-page">Home</a>
+    <a href="https://ellementconailacademy.graphy.com/s/pages/courses">Online Courses</a>
+    <a href="#">Look &amp; Learn</a>
+    <a href="#">Mini Kits</a>
+    <a href="#">Setup your own Salon</a>
+  </nav>
+</div>
+<div class="drawer-overlay" id="drawerOverlay"></div>
+
 <header class="main-header">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
   <a class="logo" href="https://ellementconailacademy.graphy.com/s/pages/home-page">
     <div class="logo-top">ELLEMENT <sup>Co.™</sup></div>
     <div class="logo-sub">NAIL ACADEMY</div>
@@ -447,7 +640,7 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
 <section class="calendar-section">
   <div class="calendar-board">
     <div class="notebook-rings">
-      <script>for(let i=0;i<25;i++) document.write('<div class="ring"></div>');</script>
+      <div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div>
     </div>
     <div class="calendar-header-row">
       <h2 class="calendar-title">Upcoming Workshops</h2>
@@ -651,6 +844,8 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
       <button class="play-btn" aria-label="Play testimonial"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button>
     </div>
   </div>
+  </div><!-- /.test-slider-wrap -->
+  <div class="dots-pagination" id="testDots" style="margin-top:20px;"></div>
   <p class="text-center" style="margin-top: 26px;"><a href="https://drive.google.com/drive/u/1/folders/17UZF1OeCfca9VyIiKT3viPOhdyzl2ly6" target="_blank" style="color: var(--brand-cream); text-decoration: underline;">View More Testimonials</a></p>
 </section>
 
@@ -1024,6 +1219,98 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.classList.add('active');
   });
 });
+
+/* ── MOBILE HAMBURGER DRAWER ── */
+(function () {
+  var btn     = document.getElementById('hamburgerBtn');
+  var drawer  = document.getElementById('mobileDrawer');
+  var overlay = document.getElementById('drawerOverlay');
+  var close   = document.getElementById('drawerClose');
+  if (!btn) return;
+  function openDrawer()  { drawer.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; }
+  btn.addEventListener('click', openDrawer);
+  close.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+})();
+
+/* ── TESTIMONIALS MOBILE SLIDER ── */
+(function () {
+  var wrap   = document.getElementById('testSliderWrap');
+  var grid   = document.getElementById('testGrid');
+  var dotsW  = document.getElementById('testDots');
+  if (!wrap || !grid) return;
+
+  var current = 0, startX = null, dragging = false, autoT = null;
+  var boxes = Array.from(grid.children);
+
+  function isMobile() { return window.innerWidth <= 600; }
+  function slideW()   { return boxes[0] ? boxes[0].getBoundingClientRect().width + 14 : 0; }
+
+  function buildDots() {
+    if (!dotsW) return;
+    dotsW.innerHTML = '';
+    if (!isMobile()) return;
+    boxes.forEach(function(_, i) {
+      var d = document.createElement('button');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Testimonial ' + (i + 1));
+      d.addEventListener('click', function() { goTo(i); restartAuto(); });
+      dotsW.appendChild(d);
+    });
+  }
+
+  function updateDots() {
+    if (!dotsW) return;
+    Array.from(dotsW.children).forEach(function(d, i) { d.classList.toggle('active', i === current); });
+  }
+
+  function goTo(i) {
+    if (!isMobile()) return;
+    current = Math.max(0, Math.min(i, boxes.length - 1));
+    grid.style.transform = 'translateX(-' + (current * slideW()) + 'px)';
+    updateDots();
+  }
+
+  function startAuto()   { autoT = setInterval(function() { goTo(current + 1 >= boxes.length ? 0 : current + 1); }, 4000); }
+  function restartAuto() { clearInterval(autoT); startAuto(); }
+
+  wrap.addEventListener('pointerdown', function(e) {
+    if (!isMobile()) return;
+    startX = e.clientX; dragging = false;
+    grid.classList.add('is-dragging');
+    clearInterval(autoT);
+    wrap.setPointerCapture(e.pointerId);
+  });
+  wrap.addEventListener('pointermove', function(e) {
+    if (startX === null || !isMobile()) return;
+    if (Math.abs(e.clientX - startX) > 5) dragging = true;
+    grid.style.transform = 'translateX(-' + (current * slideW() - (e.clientX - startX)) + 'px)';
+  });
+  wrap.addEventListener('pointerup', function(e) {
+    if (startX === null) return;
+    grid.classList.remove('is-dragging');
+    var dx = e.clientX - startX;
+    if (dragging) {
+      if (dx < -40) goTo(current + 1);
+      else if (dx > 40) goTo(current - 1);
+      else goTo(current);
+    }
+    startX = null; dragging = false; restartAuto();
+  });
+  wrap.addEventListener('pointercancel', function() {
+    grid.classList.remove('is-dragging');
+    goTo(current); startX = null; restartAuto();
+  });
+
+  function init() {
+    if (isMobile()) { buildDots(); goTo(0); startAuto(); }
+    else { grid.style.transform = ''; if (dotsW) dotsW.innerHTML = ''; clearInterval(autoT); }
+  }
+  window.addEventListener('resize', init);
+  init();
+})();
+
 </script>
 
 </body>
