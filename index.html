@@ -623,6 +623,37 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
 /* ── FORCE video visible inside test-box ── */
 .test-box .test-video { z-index: 1 !important; opacity: 1 !important; display: block !important; }
 .test-box .play-overlay { z-index: 3 !important; }
+
+/* ── TESTIMONIAL ARROWS ── */
+.test-slider-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+.test-arrow {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,255,255,0.5);
+  color: var(--brand-white);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+.test-arrow:hover:not(:disabled) { background: rgba(255,255,255,0.35); }
+.test-arrow:disabled { opacity: 0.25; cursor: not-allowed; }
+.test-arrow svg { stroke: var(--brand-white); }
+.test-slider-viewport { flex: 1; overflow: hidden; }
+
+/* Sound btn: play icon default, volume icon when unmuted */
+.sound-btn { width: 56px; height: 56px; border-radius: 50%; border: 2.5px solid var(--brand-pink); background: rgba(251,244,230,0.85); display: flex; align-items: center; justify-content: center; cursor: pointer; pointer-events: all; transition: background 0.2s ease, transform 0.15s ease; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.sound-btn:hover { background: rgba(251,244,230,0.95); transform: scale(1.08); }
+.sound-btn .icon-play { fill: var(--brand-pink); }
+.sound-btn .icon-volume { stroke: var(--brand-pink); }
+
 </style>
 </head>
 <body>
@@ -974,6 +1005,10 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
 <!-- ─── 6. TESTIMONIALS ─── -->
 <section class="test-section">
   <h2 class="section-title">Testimonials</h2>
+  <div class="test-slider-controls">
+  <button class="test-arrow test-arrow--prev" id="testPrev" aria-label="Previous">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
   <div class="test-slider-viewport" id="testViewport">
     <div class="test-grid" id="testGrid">
       <div class="test-box">
@@ -1544,47 +1579,117 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   overlay.addEventListener('click', closeD);
 })();
 
-/* ── TESTIMONIAL VIDEO SOUND TOGGLE ── */
+/* ── TESTIMONIALS: arrows + sound toggle ── */
 (function() {
-  document.querySelectorAll('.test-box').forEach(function(box) {
+  var viewport = document.getElementById('testViewport');
+  var grid     = document.getElementById('testGrid');
+  var dotsWrap = document.getElementById('testDots');
+  var btnPrev  = document.getElementById('testPrev');
+  var btnNext  = document.getElementById('testNext');
+  if (!viewport || !grid) return;
+
+  var boxes   = Array.from(grid.querySelectorAll('.test-box'));
+  var current = 0;
+
+  function isMobile() { return window.innerWidth <= 600; }
+  function visibleCount() { return isMobile() ? 1 : (window.innerWidth <= 992 ? 2 : 3); }
+  function maxIdx() { return Math.max(0, boxes.length - visibleCount()); }
+  function slideW() { return boxes[0] ? boxes[0].getBoundingClientRect().width + parseInt(getComputedStyle(grid).gap) : 0; }
+
+  // ── ARROWS ──
+  function updateArrows() {
+    if (!btnPrev || !btnNext) return;
+    var max = maxIdx();
+    btnPrev.disabled = current <= 0;
+    btnNext.disabled = current >= max;
+    // Hide both if nothing to slide
+    var show = max > 0;
+    btnPrev.style.visibility = show ? 'visible' : 'hidden';
+    btnNext.style.visibility = show ? 'visible' : 'hidden';
+  }
+
+  function goTo(i) {
+    current = Math.max(0, Math.min(i, maxIdx()));
+    if (isMobile()) {
+      var vw  = viewport.clientWidth;
+      var sw  = slideW();
+      var offset = current === 0 ? 0 : current >= maxIdx() ? Math.max(0, boxes.length * sw - vw) : Math.max(0, current * sw - 44);
+      grid.style.transform = 'translateX(-' + offset + 'px)';
+    } else {
+      grid.style.transform = 'translateX(-' + (current * slideW()) + 'px)';
+    }
+    updateDots();
+    updateArrows();
+  }
+
+  if (btnPrev) btnPrev.addEventListener('click', function() { goTo(current - 1); });
+  if (btnNext) btnNext.addEventListener('click', function() { goTo(current + 1); });
+
+  // ── DOTS ──
+  function buildDots() {
+    if (!dotsWrap) return;
+    dotsWrap.innerHTML = '';
+    var pages = maxIdx() + 1;
+    if (pages <= 1) { dotsWrap.style.display = 'none'; return; }
+    dotsWrap.style.display = 'flex';
+    for (var i = 0; i < pages; i++) {
+      (function(idx) {
+        var d = document.createElement('button');
+        d.className = 'dot' + (idx === 0 ? ' active' : '');
+        d.addEventListener('click', function() { goTo(idx); });
+        dotsWrap.appendChild(d);
+      })(i);
+    }
+  }
+
+  function updateDots() {
+    if (!dotsWrap) return;
+    Array.from(dotsWrap.children).forEach(function(d, i) { d.classList.toggle('active', i === current); });
+  }
+
+  // ── SOUND TOGGLE ──
+  function setMuted(box, muted) {
     var video = box.querySelector('.test-video');
-    var btn = box.querySelector('.sound-btn');
+    var btn   = box.querySelector('.sound-btn');
     if (!video || !btn) return;
+    video.muted = muted;
+    var iconPlay   = btn.querySelector('.icon-play');
+    var iconVolume = btn.querySelector('.icon-volume');
+    if (iconPlay)   iconPlay.style.display   = muted ? '' : 'none';
+    if (iconVolume) iconVolume.style.display  = muted ? 'none' : '';
+  }
 
-    var iconMuted = btn.querySelector('.icon-muted');
-    var iconUnmuted = btn.querySelector('.icon-unmuted');
+  boxes.forEach(function(box) {
+    var video = box.querySelector('.test-video');
+    var btn   = box.querySelector('.sound-btn');
+    if (!video) return;
 
-    // Video autoplays muted — if error hide overlay cleanly
-    video.addEventListener('error', function() {
-      if (btn) btn.style.display = 'none';
-    });
+    // Hide button if video errors
+    video.addEventListener('error', function() { if (btn) btn.style.display = 'none'; });
 
-    // Start autoplay
+    // Ensure autoplay
     video.play().catch(function() {});
 
-    // Sound button toggles mute
+    if (!btn) return;
     btn.addEventListener('click', function(e) {
       e.stopPropagation();
-      if (video.muted) {
-        // Unmute this one, mute all others
-        document.querySelectorAll('.test-box .test-video').forEach(function(v) {
-          v.muted = true;
-          var b = v.closest('.test-box').querySelector('.sound-btn');
-          if (b) {
-            b.querySelector('.icon-muted').style.display = '';
-            b.querySelector('.icon-unmuted').style.display = 'none';
-          }
-        });
-        video.muted = false;
-        iconMuted.style.display = 'none';
-        iconUnmuted.style.display = '';
-      } else {
-        video.muted = true;
-        iconMuted.style.display = '';
-        iconUnmuted.style.display = 'none';
-      }
+      var isCurrentlyMuted = video.muted;
+      // Mute ALL boxes first
+      boxes.forEach(function(b) { setMuted(b, true); });
+      // If this one WAS muted → unmute it; if was already unmuted → stays muted (toggle off)
+      if (isCurrentlyMuted) { setMuted(box, false); }
     });
   });
+
+  // ── INIT ──
+  function init() {
+    current = 0;
+    grid.style.transform = '';
+    buildDots();
+    goTo(0);
+  }
+  window.addEventListener('resize', function() { init(); });
+  init();
 })();
 
 </script>
