@@ -52,8 +52,8 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .text-center { text-align: center; }
 
 /* ─── GENERIC SECTION STYLES ─── */
-.section { padding: 60px 8%; position: relative; }
-.section-title { text-align: center; font-family: var(--fashion); font-size: 40px; margin-bottom: 40px; color: var(--brand-pink); font-weight: 400; }
+.section { padding: 60px 6%; position: relative; }
+.section-title { text-align: center; font-family: var(--fashion); font-size: 60px; margin-bottom: 40px; color: var(--brand-pink); font-weight: 400; }
 .dots-pagination { display: flex; justify-content: center; gap: 8px; margin-top: 30px; }
 .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--brand-blue); opacity: 0.5; transition: opacity .3s; cursor: pointer; border: none; padding: 0; }
 .dot.active { opacity: 1; }
@@ -93,10 +93,10 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .hero-section .dot { background: var(--brand-blue); }
 
 /* ─── 3. ELLEMENT CO COURSES (match mockup card design) ─── */
-.courses-section { background-color: var(--brand-cream); padding: 60px 6% 60px; }
+.courses-section { background-color: var(--brand-cream); padding: 60px 6%; max-width: 100%; }
 .course-header { margin-bottom: 28px; }
 .course-header h3 { font-size: 14px; color: var(--brand-pink); font-weight: 400; margin-bottom: 8px; }
-.course-header h2 { font-family: var(--display); font-weight: 400; font-size: 44px; color: var(--brand-pink); line-height: 1.15; margin-bottom: 8px; }
+.course-header h2 { font-family: var(--display); font-weight: 400; font-size: 60px; color: var(--brand-pink); line-height: 1.1; margin-bottom: 8px; }
 .course-header p { color: var(--brand-pink-light); font-size: 15px; }
 .course-filter { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
 .filter-btn { font-family: var(--sans); font-size: 15px; font-weight: 600; padding: 10px 26px; border: 2px solid var(--brand-pink); border-radius: 50px; background: var(--brand-cream); color: var(--brand-black); transition: 0.2s; }
@@ -122,8 +122,8 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .courses-section .dots-pagination { margin-top: 24px; }
 
 /* ─── 4. CALENDAR SECTION ─── */
-.calendar-section { background-color: var(--brand-pink); padding: 80px 8% 80px; position: relative; }
-.calendar-board { background-color: var(--brand-cream); max-width: 1000px; width: 100%; margin: 0 auto; border-radius: 12px; padding: 40px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 3px solid #e0d5c1; }
+.calendar-section { background-color: var(--brand-pink); padding: 80px 6% 80px; position: relative; }
+.calendar-board { background-color: var(--brand-cream); max-width: 100%; width: 100%; margin: 0 auto; border-radius: 12px; padding: 40px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 3px solid #e0d5c1; }
 .calendar-scroll-wrap { overflow-x: auto; overflow-y: visible; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: var(--brand-pink) var(--brand-cream); height: auto; }
 .calendar-scroll-wrap::-webkit-scrollbar { height: 4px; width: 0; }
 .calendar-scroll-wrap::-webkit-scrollbar-track { background: var(--brand-cream); border-radius: 4px; }
@@ -147,38 +147,50 @@ button { font-family: inherit; cursor: pointer; border: none; }
 
 /* ─── 5. WHAT YOU WILL GET (icon grid to match mockup) ─── */
 .wywg-section { background-color: var(--brand-cream); padding: 60px 6% 70px; text-align: center; }
-.wywg-section .section-title { font-family: var(--display); font-size: 42px; margin-bottom: 55px; }
-.wywg-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 60px 30px; max-width: 1200px; margin: 0 auto; }
+.wywg-section .section-title { font-family: var(--display); font-size: 60px; margin-bottom: 55px; }
+.wywg-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 60px 30px; max-width: 100%; margin: 0 auto; }
 .wywg-item { display: flex; flex-direction: column; align-items: center; gap: 16px; color: var(--brand-blue-dark); }
-.wywg-item img { width: 82px; height: 82px; object-fit: contain; }
-.wywg-item p { font-size: 17px; font-weight: 500; line-height: 1.3; color: var(--brand-blue-dark); }
+.wywg-item img { width: 90px; height: 90px; object-fit: contain; }
+.wywg-item p { font-size: 16px; font-weight: 500; line-height: 1.3; color: var(--brand-blue-dark); text-align: center; }
 
-/* ─── 6. TESTIMONIALS (match mockup: cream title, tall cards) ─── */
-.test-section { background-color: var(--brand-pink); padding: 90px 8% 90px; }
-.test-section .section-title { color: var(--brand-cream); font-family: var(--fashion); font-size: 40px; margin-bottom: 45px; }
-.test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px; max-width: 1050px; margin: 0 auto; }
-.test-box { background: var(--brand-cream); border-radius: 34px; aspect-ratio: 3/4; position: relative; overflow: hidden; }
-.test-box .play-btn { border-color: var(--brand-pink); color: var(--brand-pink); width: 66px; height: 66px; }
-.test-box .play-btn svg { width: 26px; height: 26px; }
-
+/* ─── 6. TESTIMONIALS ─── */
+.test-section { background-color: var(--brand-pink); padding: 90px 6%; }
+.test-section .section-title { color: var(--brand-cream); font-family: var(--fashion); font-size: 60px; margin-bottom: 48px; font-weight: 400; }
+.test-carousel-wrap { display: flex; align-items: center; gap: 20px; max-width: 100%; margin: 0 auto; }
+.test-arrow { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.6); display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: background 0.2s, opacity 0.2s; }
+.test-arrow svg { stroke: #fff; }
+.test-arrow:hover { background: rgba(255,255,255,0.35); }
+.test-arrow:disabled { opacity: 0.3; cursor: not-allowed; }
+.test-viewport { flex: 1; overflow: hidden; min-width: 0; }
+.test-track { display: flex; gap: 28px; transition: transform 0.45s cubic-bezier(0.25,0.8,0.25,1); will-change: transform; }
+.test-box { flex: 0 0 calc((100% - 56px) / 3); aspect-ratio: 3/4; border-radius: 30px; position: relative; overflow: hidden; background: var(--brand-cream); }
+.test-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 1; }
+.play-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; pointer-events: none; }
+.sound-btn { width: 56px; height: 56px; border-radius: 50%; border: 2.5px solid var(--brand-pink); background: rgba(251,244,230,0.85); display: flex; align-items: center; justify-content: center; cursor: pointer; pointer-events: all; position: relative; z-index: 3; backdrop-filter: blur(6px); transition: transform 0.15s, background 0.2s, opacity 0.5s ease; }
+.sound-btn:hover { background: rgba(251,244,230,0.98); transform: scale(1.08); }
+.sound-btn.faded { opacity: 0; pointer-events: none; }
+.test-box:hover .sound-btn.faded { opacity: 1; pointer-events: all; }
+.sound-btn .icon-play { fill: var(--brand-pink); }
+.sound-btn .icon-volume { stroke: var(--brand-pink); }
+.test-section .dots-pagination { margin-top: 28px; }
 /* ─── 7. WHO THIS IS FOR (restyled to founder-message mockup) ─── */
-.founder-section { background: var(--brand-cream); position: relative; padding: 130px 8%; }
+.founder-section { background: var(--brand-cream); position: relative; padding: 130px 6%; }
 .founder-wave { position: absolute; left: 0; width: 100%; height: 70px; line-height: 0; z-index: 2; }
 .founder-wave--top { top: -1px; }
 .founder-wave--bottom { bottom: -1px; }
 .founder-wave svg { display: block; width: 100%; height: 100%; }
-.founder-inner { max-width: 1050px; margin: 0 auto; }
-.two-col { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items: center; }
-.media-block { aspect-ratio: 4 / 5; width: 100%; max-width: 380px; border-radius: 34px; overflow: hidden; }
+.founder-inner { max-width: 100%; margin: 0 auto; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; justify-content: center; max-width: 100%; }
+.media-block { aspect-ratio: 4 / 5; width: 100%; max-width: 520px; border-radius: 34px; overflow: hidden; }
 .media-block img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .text-col .eyebrow { font-size: 17px; font-weight: 400; color: var(--brand-pink); margin-bottom: 10px; }
-.text-col h2 { font-family: var(--display); font-weight: 400; font-size: 44px; margin-bottom: 18px; color: var(--brand-pink); line-height: 1.1; }
-.text-col .intro-text { font-size: 17px; color: var(--brand-pink); line-height: 1.65; margin-bottom: 34px; max-width: 480px; }
+.text-col h2 { font-family: var(--display); font-weight: 400; font-size: 60px; margin-bottom: 18px; color: var(--brand-pink); line-height: 1.0; }
+.text-col .intro-text { font-size: 17px; color: var(--brand-pink); line-height: 1.65; margin-bottom: 34px; max-width: 100%; }
 .btn-whatsapp { display: inline-block; background: var(--brand-blue); color: var(--brand-white); font-size: 20px; font-weight: 700; padding: 14px 34px; border-radius: 50px; transition: background .2s; }
 .btn-whatsapp:hover { background: var(--brand-blue-dark); }
 
 /* ─── 8. CONSULTATION & FORM ─── */
-.consultation-section { background-color: var(--brand-pink); padding: 60px 8%; }
+.consultation-section { background-color: var(--brand-pink); padding: 60px 6%; }
 .consultation-section .section-title { color: var(--brand-white); }
 .consultation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
 .consultation-box { border-radius: 30px; overflow: hidden; }
@@ -195,9 +207,9 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .form-fields { font-size: 18px; font-weight: 300; line-height: 1.8; }
 
 /* ─── 9. FAQs ─── */
-.faq-section { background-color: var(--brand-cream); padding: 80px 8%; }
-.faq-section .section-title { color: var(--brand-blue-dark); letter-spacing: 2px; font-family: var(--sans); font-size: 20px; margin-bottom: 40px; text-transform: uppercase;}
-.faq-wrapper { max-width: 800px; margin: 0 auto; background: var(--brand-blue-light); border-radius: 12px; padding: 20px; }
+.faq-section { background-color: var(--brand-cream); padding: 80px 6%; }
+.faq-section .section-title { color: var(--brand-blue-dark); font-family: var(--fashion); font-size: 60px; margin-bottom: 40px; font-weight: 400; }
+.faq-wrapper { max-width: 100%; margin: 0 auto; background: var(--brand-blue-light); border-radius: 12px; padding: 20px; }
 .faq-item { border-bottom: 1px solid rgba(45,45,45,0.1); }
 .faq-item:last-child { border-bottom: none; }
 .faq-trigger { width: 100%; background: none; color: var(--brand-black); padding: 20px 10px; display: flex; align-items: center; justify-content: space-between; font-size: 14px; text-align: left; cursor: pointer; font-weight: 600; }
@@ -207,17 +219,17 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
 .faq-answer { padding: 0 10px 20px; font-size: 13px; color: var(--brand-gray); line-height: 1.6; }
 
 /* ─── 10. CONTACT US (three pill inputs to match mockup) ─── */
-.contact-section { background-color: var(--brand-pink); padding: 55px 8% 70px; }
-.contact-section .section-title { color: var(--brand-cream); font-family: var(--fashion); font-size: 40px; margin-bottom: 42px; }
-.contact-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; max-width: 1000px; margin: 0 auto; }
+.contact-section { background-color: var(--brand-pink); padding: 55px 6% 70px; }
+.contact-section .section-title { color: var(--brand-cream); font-family: var(--fashion); font-size: 60px; margin-bottom: 42px; }
+.contact-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; max-width: 100%; margin: 0 auto; }
 .contact-pill { width: 100%; background: var(--brand-cream); border: none; border-radius: 50px; padding: 20px 30px; font-family: var(--fashion); font-size: 20px; color: var(--brand-pink); outline: none; }
 .contact-pill::placeholder { color: var(--brand-pink); opacity: 1; font-family: var(--fashion); }
 .contact-pill:focus { box-shadow: 0 0 0 3px rgba(255,255,255,0.5); }
 
 /* ─── 11. MINI KITS ─── */
-.minikits-section { background-color: var(--brand-cream); padding: 80px 8%; }
-.minikits-section .section-title { color: var(--brand-pink); font-family: var(--display); font-size: 40px; margin-bottom: 60px; }
-.minikits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 55px; max-width: 1100px; margin: 0 auto; }
+.minikits-section { background-color: var(--brand-cream); padding: 80px 6%; }
+.minikits-section .section-title { color: var(--brand-pink); font-family: var(--display); font-size: 60px; margin-bottom: 60px; }
+.minikits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 55px; max-width: 100%; margin: 0 auto; }
 .minikit-col { display: flex; flex-direction: column; align-items: center; gap: 28px; }
 .minikit-box { background: #fefaf2; border-radius: 22px; width: 100%; aspect-ratio: 5/6; overflow: hidden; }
 .minikit-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -226,7 +238,7 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
 
 /* ─── 12. PRODUCTS RANGE (new image + taller) ─── */
 .products-section { background-color: var(--brand-cream); padding: 50px 0 0; text-align: center; position: relative; overflow: hidden; }
-.products-section .section-title { color: var(--brand-pink); font-family: var(--display); font-size: 44px; margin-bottom: 0; position: relative; z-index: 3; }
+.products-section .section-title { color: var(--brand-pink); font-family: var(--display); font-size: 60px; margin-bottom: 0; position: relative; z-index: 3; }
 .products-media { position: relative; margin-top: 30px; width: 100%; padding-bottom: 20px;}
 /* Replace the URL below with your own product-range photo (like the sticker flat-lay) */
 .products-image { width: 100%; height: 580px; background-image: url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1800&auto=format&fit=crop'); background-size: cover; background-position: center; display: block; }
@@ -236,7 +248,7 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
 .products-wave--bottom { margin-top: -69px; }
 
 /* ─── 13. PRE-FOOTER & FOOTER ─── */
-.pre-footer { background-color: var(--brand-blue); color: var(--brand-black); padding: 40px 8%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.pre-footer { background-color: var(--brand-blue); color: var(--brand-black); padding: 40px 6%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .pf-item { display: flex; flex-direction: column; gap: 10px; font-size: 11px; }
 .pf-title { font-weight: 700; display: flex; align-items: center; gap: 8px; font-size: 13px; }
 .footer-wrapper { background-color: var(--brand-cream); position: relative; padding-top: 100px; }
@@ -244,7 +256,7 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
 .footer-wave svg { display: block; width: 100%; height: 100%; }
 .footer-wave .wave-fill { fill: var(--brand-blue); }
 .footer-wave .wave-stroke { fill: none; stroke: var(--brand-blue-dark); stroke-width: 2px; }
-.footer-inner { position: relative; padding: 0 8% 0; max-width: 1280px; margin: 0 auto; }
+.footer-inner { position: relative; padding: 0 6% 0; max-width: 100%; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(45,45,45,0.1); align-items: start; }
 .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; color: var(--brand-black); }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
@@ -303,10 +315,6 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
 .minikit-arrow svg { stroke: var(--brand-white); }
 .minikit-arrow:hover { background: var(--brand-blue-dark); }
 
-/* ── TESTIMONIALS SLIDER ── */
-.test-slider-viewport { overflow: hidden; }
-.test-grid { display: flex; gap: 24px; transition: transform 0.45s cubic-bezier(0.25,0.8,0.25,1); will-change: transform; max-width: none; margin: 0; }
-.test-box { flex: 0 0 calc(33.333% - 16px); }
 
 /* ── DESKTOP 3-UP TESTIMONIALS ── */
 @media (min-width: 601px) {
@@ -442,125 +450,7 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
   .wywg-item img { width: 60px; height: 60px; }
   .wywg-item p { font-size: 13px !important; }
 
-  /* ── TESTIMONIALS ── */
-  .test-section { padding: 50px 5% 50px !important; }
-  .test-section .section-title { font-size: 26px !important; margin-bottom: 34px !important; }
-  .test-slider-viewport { overflow: hidden; touch-action: pan-y; padding-left: 44px; }
-  .test-grid { cursor: grab; margin-left: -44px; }
-  .test-grid.is-dragging { transition: none !important; cursor: grabbing; }
-  .test-box { flex: 0 0 88% !important; }
-
-  /* ── FOUNDER ── */
-  .founder-section { padding: 50px 5% !important; }
-  .two-col { grid-template-columns: 1fr !important; gap: 28px !important; }
-  .media-block { max-width: 100%; }
-  .founder-wave, .founder-wave--top, .founder-wave--bottom { height: 40px; }
-  .btn-whatsapp { font-size: 16px; padding: 12px 28px; }
-
-  /* ── CONSULTATION ── */
-  .consultation-section { padding: 50px 5% 50px !important; }
-  .consultation-grid { grid-template-columns: 1fr !important; gap: 20px !important; margin-top: 30px; }
-  .consultation-form { padding: 24px; }
-  .form-title { font-size: 26px !important; }
-
-  /* ── MINI KITS ── */
-  .minikits-section { padding: 50px 5% 50px !important; }
-  .minikits-slider-wrap { max-width: 100%; gap: 10px; }
-  .minikit-arrow { width: 38px; height: 38px; font-size: 18px; }
-  .minikit-name { font-size: 18px !important; }
-
-  /* ── FAQ ── */
-  .faq-section { padding: 50px 5% 50px !important; }
-
-  /* ── CONTACT ── */
-  .contact-section { padding: 50px 5% 50px !important; }
-  .contact-row { grid-template-columns: 1fr !important; gap: 16px !important; max-width: 100% !important; }
-  .contact-pill { font-size: 16px !important; padding: 14px 20px; }
-
-  /* ── PRE-FOOTER ── */
-  .pre-footer { grid-template-columns: 1fr 1fr !important; gap: 20px; padding: 30px 5% !important; }
-
-  /* ── FOOTER ── */
-  .footer-wrapper { padding-top: 50px; }
-  .footer-wave { height: 50px; }
-  .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 24px 16px !important; }
-  .footer-col:first-child { grid-column: 1 / -1; }
-  .footer-col h4 { font-size: 11px; margin-bottom: 10px; }
-  .footer-col ul li a { font-size: 12px !important; }
-  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .footer-bottom-links { flex-wrap: wrap; gap: 8px; }
-  .subscribe-form { max-width: 100%; }
-  .footer-desc { max-width: 100%; }
-  .products-image { height: 200px; }
-
-  /* ── PRODUCTS FULL BLEED MOBILE ── */
-  .products-section { padding: 20px 0 0 !important; }
-  .products-wave { height: 40px; }
-  .products-wave--top { margin-bottom: -39px; }
-  .products-wave--bottom { margin-top: -39px; }
-  .products-image { height: 240px; }
-
-  /* ── FOUNDER IMAGE FULL WIDTH ── */
-  .founder-section { padding: 40px 0 40px !important; }
-  .founder-inner { padding: 50px 5%; }
-  .two-col { grid-template-columns: 1fr !important; gap: 0 !important; }
-  /* .media-block { max-width: 100% !important; border-radius: 0 !important; aspect-ratio: 4/3 !important; } */
-  .text-col { padding: 24px 5% 0; }
-
-  /* ── MINI KITS: hide desktop grid, show mobile slider ── */
-  .minikits-grid { display: none !important; }
-  #mkSlider { display: flex !important; }
-  #mkDots { display: flex !important; }
-  .minikits-slider-wrap { max-width: 100%; gap: 10px; }
-
-  /* ── CALENDAR: rings stay above scroll wrapper ── */
-  .calendar-board { overflow: visible !important; height: auto !important; max-height: none !important; padding: 14px 8px 14px !important; }
-  .calendar-scroll-wrap {
-    overflow-x: auto;
-    overflow-y: visible;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: var(--brand-pink) var(--brand-cream);
-    height: auto !important;
-    max-height: none !important;
-  }
-  .calendar-scroll-wrap::-webkit-scrollbar { height: 4px; width: 0px; }
-  .calendar-scroll-wrap::-webkit-scrollbar-track { background: var(--brand-cream); }
-  .calendar-scroll-wrap::-webkit-scrollbar-thumb { background: var(--brand-pink); border-radius: 4px; }
-  .calendar-grid { min-width: 490px !important; height: auto !important; }
-  .calendar-cell { height: auto !important; min-height: 55px; }
-  .notebook-rings { padding: 0 8px; top: -10px; }
-  .ring { width: 8px !important; height: 18px !important; border-radius: 6px; }
-  /* Kill any inherited height/overflow from the platform wrapper */
-.calendar-section {
-  height: auto !important;
-  max-height: none !important;
-  overflow: visible !important;
-}
-
-.calendar-board {
-  height: auto !important;
-  max-height: none !important;
-  overflow-y: visible !important;   /* no vertical scroll here */
-  overflow-x: visible !important;
-}
-
-.calendar-scroll-wrap {
-  height: auto !important;
-  max-height: none !important;
-  overflow-y: hidden !important;    /* explicitly kill vertical scrollbar */
-  overflow-x: auto !important;      /* keep only the horizontal one */
-  padding-bottom: 19px;
-}
-
-/* Belt-and-suspenders: if Graphy wraps your embed in its own div, 
-   target it too — it usually gets a generic class like this */
-.calendar-section, 
-.calendar-section * {
-  overflow-anchor: none;
-}
-}
-
+  
 /* ── VERY SMALL: 320-479px (small Android, SE) ── */
 @media (max-width: 479px) {
   .section-title { font-size: 24px !important; }
@@ -956,51 +846,51 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
   <h2 class="section-title">What you will get?</h2>
   <div class="wywg-grid">
     <div class="wywg-item">
-      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-1.png" alt="Certificate icon">
+      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-3.png" alt="Certificate icon">
       <p>Certificate</p>
     </div>
     <div class="wywg-item">
-      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-2.png" alt="Live Training icon">
+      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-4.png" alt="Live Training icon">
       <p>Live Training</p>
     </div>
     <div class="wywg-item">
-      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-3.png" alt="Practice time icon">
+      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-5.png" alt="Practice time icon">
       <p>Practice time</p>
     </div>
     <div class="wywg-item">
-      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-4.png" alt="Mini kit icon">
+      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-6.png" alt="Mini kit icon">
       <p>Mini kit</p>
     </div>
     <div class="wywg-item">
-      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-5.png" alt="Technique library icon">
+      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-7.png" alt="Technique library icon">
       <p>Technique library</p>
     </div>
     <div class="wywg-item">
-      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-6.png" alt="Whatsapp support icon">
+      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-8.png" alt="Whatsapp support icon">
       <p>Whatsapp support</p>
     </div>
     <div class="wywg-item">
-      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-7.png" alt="Small batch learning icon">
+      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-9.png" alt="Small batch learning icon">
       <p>Small batch learning</p>
     </div>
     <div class="wywg-item">
-      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-8.png" alt="Salon ready skills icon">
+      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-10.png" alt="Salon ready skills icon">
       <p>Salon ready skills</p>
     </div>
     <div class="wywg-item">
-      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-9.png" alt="Product Knowledge icon">
+      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-11.png" alt="Product Knowledge icon">
       <p>Product Knowledge</p>
     </div>
     <div class="wywg-item">
-      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-10.png" alt="Business guidence icon">
+      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-12.png" alt="Business guidence icon">
       <p>Business guidence</p>
     </div>
     <div class="wywg-item">
-      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-11.png" alt="Repeat session access icon">
+      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-13.png" alt="Repeat session access icon">
       <p>Repeat session access</p>
     </div>
     <div class="wywg-item">
-      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-12.png" alt="Digital study material icon">
+      <img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-icon-14.png" alt="Digital study material icon">
       <p>Digital study material</p>
     </div>
   </div>
@@ -1009,40 +899,33 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
 <!-- ─── 6. TESTIMONIALS ─── -->
 <section class="test-section">
   <h2 class="section-title">Testimonials</h2>
-  <div class="test-slider-controls">
-  <button class="test-arrow test-arrow--prev" id="testPrev" aria-label="Previous">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><polyline points="15 18 9 12 15 6"/></svg>
-  </button>
-  <div class="test-slider-viewport" id="testViewport">
-    <div class="test-grid" id="testGrid">
-      <div class="test-box">
-        <video class="test-video" autoplay muted loop playsinline preload="auto">
-          <source src="https://cdn.shopify.com/videos/c/o/v/6c8c1bd2c24443ad91a92aefe77c1e07.mp4" type="video/mp4">
-          <source src="https://cdn.shopify.com/videos/c/o/v/6c8c1bd2c24443ad91a92aefe77c1e07.mp4" type="video/mp4">
-        </video>
-        <div class="play-overlay">
-          <button class="play-btn" aria-label="Play testimonial"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button>
+  <div class="test-carousel-wrap">
+    <button class="test-arrow" id="testPrev" aria-label="Previous">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="test-viewport" id="testViewport">
+      <div class="test-track" id="testGrid">
+        <div class="test-box">
+          <video class="test-video" autoplay muted loop playsinline preload="auto"><source src="https://cdn.shopify.com/videos/c/o/v/6c8c1bd2c24443ad91a92aefe77c1e07.mp4" type="video/mp4"></video>
+          <div class="play-overlay"><button class="sound-btn" aria-label="Toggle sound"><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-volume" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button></div>
         </div>
-      </div>
-      <div class="test-box">
-        <video class="test-video" autoplay muted loop playsinline preload="auto">
-          <source src="https://cdn.shopify.com/videos/c/o/v/169293710730450dbdd65c6f3bafb442.mp4" type="video/mp4">
-          <source src="https://cdn.shopify.com/videos/c/o/v/169293710730450dbdd65c6f3bafb442.mp4" type="video/mp4">
-        </video>
-        <div class="play-overlay">
-          <button class="play-btn" aria-label="Play testimonial"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button>
+        <div class="test-box">
+          <video class="test-video" autoplay muted loop playsinline preload="auto"><source src="https://cdn.shopify.com/videos/c/o/v/169293710730450dbdd65c6f3bafb442.mp4" type="video/mp4"></video>
+          <div class="play-overlay"><button class="sound-btn" aria-label="Toggle sound"><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-volume" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button></div>
         </div>
-      </div>
-      <div class="test-box">
-        <video class="test-video" autoplay muted loop playsinline preload="auto">
-          <source src="https://cdn.shopify.com/videos/c/o/v/314711d121a44a3cac37e3fa2ab28bc4.mp4" type="video/mp4">
-          <source src="https://cdn.shopify.com/videos/c/o/v/314711d121a44a3cac37e3fa2ab28bc4.mp4" type="video/mp4">
-        </video>
-        <div class="play-overlay">
-          <button class="play-btn" aria-label="Play testimonial"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button>
+        <div class="test-box">
+          <video class="test-video" autoplay muted loop playsinline preload="auto"><source src="https://cdn.shopify.com/videos/c/o/v/314711d121a44a3cac37e3fa2ab28bc4.mp4" type="video/mp4"></video>
+          <div class="play-overlay"><button class="sound-btn" aria-label="Toggle sound"><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-volume" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button></div>
+        </div>
+        <div class="test-box">
+          <video class="test-video" autoplay muted loop playsinline preload="auto"><source src="https://cdn.shopify.com/videos/c/o/v/e5ac17eeb8ea483481c67aebd473d310.mp4" type="video/mp4"></video>
+          <div class="play-overlay"><button class="sound-btn" aria-label="Toggle sound"><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-volume" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button></div>
         </div>
       </div>
     </div>
+    <button class="test-arrow" id="testNext" aria-label="Next">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
   </div>
   <div class="dots-pagination" id="testDots"></div>
 </section>
@@ -1166,7 +1049,7 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
       <button class="minikit-pill">Shop now!</button>
     </div>
     <div class="minikit-col">
-      <div class="minikit-box"><img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-Press_on_workshop_kit_.jpg" alt="Press On Workshop Kit"></div>
+      <div class="minikit-box"><img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-Press_on_workshop_kit.jpg" alt="Press On Workshop Kit"></div>
       <button class="minikit-pill">Shop now!</button>
     </div>
   </div>
@@ -1186,7 +1069,7 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
           <button class="minikit-pill">Shop now!</button>
         </div>
         <div class="minikit-col">
-          <div class="minikit-box"><img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-Press_on_workshop_kit_.jpg" alt="Press On Workshop Kit"></div>
+          <div class="minikit-box"><img src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-images-graphy-Press_on_workshop_kit.jpg" alt="Press On Workshop Kit"></div>
           <button class="minikit-pill">Shop now!</button>
         </div>
       </div>
@@ -1424,100 +1307,6 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-/* ── TESTIMONIALS SLIDER ── */
-(function () {
-  const viewport = document.getElementById('testViewport');
-  const grid     = document.getElementById('testGrid');
-  const dotsWrap = document.getElementById('testDots');
-  if (!viewport || !grid) return;
-
-  const boxes = Array.from(grid.children);
-  let current = 0, startX = null, dragging = false, autoT = null;
-
-  function isMobile() { return window.innerWidth <= 600; }
-  function visibleCount() { return isMobile() ? 1 : (window.innerWidth <= 992 ? 2 : 3); }
-  function gap() { return isMobile() ? 14 : 24; }
-  function slideW() { return boxes[0] ? boxes[0].getBoundingClientRect().width + gap() : 0; }
-  function maxCurrent() { return Math.max(0, boxes.length - visibleCount()); }
-
-  function buildDots() {
-    if (!dotsWrap) return;
-    dotsWrap.innerHTML = '';
-    const pages = maxCurrent() + 1;
-    // Hide dots when all items are visible (no scrolling needed)
-    if (pages <= 1) { dotsWrap.style.display = 'none'; return; }
-    dotsWrap.style.display = 'flex';
-    for (let i = 0; i < pages; i++) {
-      const d = document.createElement('button');
-      d.className = 'dot' + (i === 0 ? ' active' : '');
-      d.setAttribute('aria-label', 'Testimonial ' + (i + 1));
-      d.addEventListener('click', () => { goTo(i); restartAuto(); });
-      dotsWrap.appendChild(d);
-    }
-  }
-
-  function updateDots() {
-    if (!dotsWrap) return;
-    Array.from(dotsWrap.children).forEach((d, i) => d.classList.toggle('active', i === current));
-  }
-
-  function goTo(i) {
-    current = Math.max(0, Math.min(i, maxCurrent()));
-    grid.style.transform = 'translateX(-' + (current * slideW()) + 'px)';
-    updateDots();
-  }
-
-  function startAuto() {
-    if (!isMobile()) return;
-    autoT = setInterval(() => goTo(current >= maxCurrent() ? 0 : current + 1), 4000);
-  }
-  function restartAuto() { clearInterval(autoT); startAuto(); }
-
-  viewport.addEventListener('pointerdown', e => {
-    startX = e.clientX; dragging = false;
-    grid.classList.add('is-dragging');
-    clearInterval(autoT);
-    viewport.setPointerCapture(e.pointerId);
-  });
-  viewport.addEventListener('pointermove', e => {
-    if (startX === null) return;
-    if (Math.abs(e.clientX - startX) > 5) dragging = true;
-    const vw = viewport.clientWidth;
-    const sw = slideW();
-    let baseOffset;
-    if (current === 0) { baseOffset = 0; }
-    else if (current >= maxCurrent()) { baseOffset = Math.max(0, boxes.length * sw - vw); }
-    else { baseOffset = Math.max(0, (current * sw) - peekOffset()); }
-    grid.style.transform = 'translateX(-' + (baseOffset - (e.clientX - startX)) + 'px)';
-  });
-  viewport.addEventListener('pointerup', e => {
-    if (startX === null) return;
-    grid.classList.remove('is-dragging');
-    const dx = e.clientX - startX;
-    if (dragging) {
-      if (dx < -40) goTo(current + 1);
-      else if (dx > 40) goTo(current - 1);
-      else goTo(current); // snap back
-    }
-    startX = null; dragging = false; restartAuto();
-  });
-  viewport.addEventListener('pointercancel', () => {
-    grid.classList.remove('is-dragging');
-    goTo(current); startX = null; restartAuto();
-  });
-  viewport.addEventListener('mouseenter', () => clearInterval(autoT));
-  viewport.addEventListener('mouseleave', restartAuto);
-
-  function init() {
-    grid.style.transform = '';
-    current = 0;
-    buildDots();
-    goTo(0);
-    if (isMobile()) startAuto();
-  }
-  window.addEventListener('resize', () => { clearInterval(autoT); init(); });
-  init();
-})();
 
 /* ── MINI KITS SLIDER ── */
 (function () {
@@ -1582,117 +1371,114 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   overlay.addEventListener('click', closeD);
 })();
 
-/* ── TESTIMONIALS: arrows + sound toggle ── */
+
+
+/* ── TESTIMONIALS CAROUSEL ── */
 (function() {
   var viewport = document.getElementById('testViewport');
-  var grid     = document.getElementById('testGrid');
+  var track    = document.getElementById('testGrid');
   var dotsWrap = document.getElementById('testDots');
   var btnPrev  = document.getElementById('testPrev');
   var btnNext  = document.getElementById('testNext');
-  if (!viewport || !grid) return;
-
+  if (!viewport || !track) return;
   var current = 0;
-
-  function boxes() { return Array.from(grid.querySelectorAll('.test-box')); }
-  function isMobile() { return window.innerWidth <= 600; }
-  function visibleCount() { return isMobile() ? 1 : (window.innerWidth <= 992 ? 2 : 3); }
-  function gap() {
-    var g = parseInt(getComputedStyle(grid).gap || getComputedStyle(grid).columnGap || '0');
-    return isNaN(g) ? 28 : g;
+  function getBoxes()  { return Array.from(track.children); }
+  function visible()   { return window.innerWidth <= 600 ? 1 : window.innerWidth <= 900 ? 2 : 3; }
+  function getGap()    { return 28; }
+  function boxW()      { var vw = viewport.clientWidth; return (vw - getGap() * 2) / 3 + getGap(); }
+  function maxSlide()  { return Math.max(0, getBoxes().length - visible()); }
+  function moveTo(i) {
+    current = Math.max(0, Math.min(i, maxSlide()));
+    track.style.transform = 'translateX(-' + (current * boxW()) + 'px)';
+    if (dotsWrap) Array.from(dotsWrap.children).forEach(function(d,i){ d.classList.toggle('active', i===current); });
+    if (btnPrev) btnPrev.disabled = current <= 0;
+    if (btnNext) btnNext.disabled = current >= maxSlide();
   }
-  function slideW() {
-    var b = boxes();
-    return b.length ? b[0].getBoundingClientRect().width + gap() : 0;
-  }
-  function maxIdx() { return Math.max(0, boxes().length - visibleCount()); }
-
-  function updateArrows() {
-    if (!btnPrev || !btnNext) return;
-    var max = maxIdx();
-    btnPrev.disabled = current <= 0;
-    btnNext.disabled = current >= max;
-    btnPrev.style.visibility = max > 0 ? 'visible' : 'hidden';
-    btnNext.style.visibility = max > 0 ? 'visible' : 'hidden';
-  }
-
-  function goTo(i) {
-    var max = maxIdx();
-    current = Math.max(0, Math.min(i, max));
-    var sw = slideW();
-    var offset;
-    if (isMobile()) {
-      var vw = viewport.clientWidth;
-      offset = current === 0 ? 0 : current >= max ? Math.max(0, boxes().length * sw - vw) : Math.max(0, current * sw - 44);
-    } else {
-      offset = current * sw;
-    }
-    grid.style.transform = 'translateX(-' + offset + 'px)';
-    updateDots();
-    updateArrows();
-  }
-
-  if (btnPrev) btnPrev.addEventListener('click', function() { goTo(current - 1); });
-  if (btnNext) btnNext.addEventListener('click', function() { goTo(current + 1); });
-
   function buildDots() {
     if (!dotsWrap) return;
     dotsWrap.innerHTML = '';
-    var pages = maxIdx() + 1;
+    var pages = maxSlide() + 1;
     if (pages <= 1) { dotsWrap.style.display = 'none'; return; }
     dotsWrap.style.display = 'flex';
     for (var i = 0; i < pages; i++) {
-      (function(idx) {
-        var d = document.createElement('button');
-        d.className = 'dot' + (idx === 0 ? ' active' : '');
-        d.addEventListener('click', function() { goTo(idx); });
-        dotsWrap.appendChild(d);
-      })(i);
+      (function(n){ var d = document.createElement('button'); d.className='dot'; d.addEventListener('click', function(){ moveTo(n); }); dotsWrap.appendChild(d); })(i);
     }
   }
+  if (btnPrev) btnPrev.addEventListener('click', function(){ moveTo(current-1); });
+  if (btnNext) btnNext.addEventListener('click', function(){ moveTo(current+1); });
+  // Autoplay videos
+  getBoxes().forEach(function(box) {
+    var v = box.querySelector('.test-video');
+    if (v) { v.muted = true; v.play().catch(function(){}); }
+  });
+  window.addEventListener('resize', function(){ buildDots(); moveTo(current); });
+  buildDots(); moveTo(0);
+})();
 
-  function updateDots() {
-    if (!dotsWrap) return;
-    Array.from(dotsWrap.children).forEach(function(d, i) { d.classList.toggle('active', i === current); });
+/* ── SOUND TOGGLE (capture phase — nothing can block this) ── */
+(function() {
+  var fadeTimers = new WeakMap();
+
+  function startFade(btn) {
+    clearTimeout(fadeTimers.get(btn));
+    var t = setTimeout(function() { btn.classList.add('faded'); }, 1000);
+    fadeTimers.set(btn, t);
   }
 
-  function setMuted(box, muted) {
-    var video = box.querySelector('.test-video');
-    var btn   = box.querySelector('.sound-btn');
-    if (!video || !btn) return;
-    video.muted = muted;
-    var ip = btn.querySelector('.icon-play');
-    var iv = btn.querySelector('.icon-volume');
-    if (ip) ip.style.display = muted ? '' : 'none';
-    if (iv) iv.style.display = muted ? 'none' : '';
+  function cancelFade(btn) {
+    clearTimeout(fadeTimers.get(btn));
+    btn.classList.remove('faded');
   }
 
-  function initVideos() {
-    boxes().forEach(function(box) {
-      var video = box.querySelector('.test-video');
-      var btn   = box.querySelector('.sound-btn');
-      if (!video) return;
-      video.addEventListener('error', function() { if (btn) btn.style.display = 'none'; });
-      video.play().catch(function() {});
-      if (!btn) return;
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        var wasMuted = video.muted;
-        boxes().forEach(function(b) { setMuted(b, true); });
-        if (wasMuted) setMuted(box, false);
-      });
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest ? e.target.closest('.sound-btn') : null;
+    if (!btn) return;
+    e.preventDefault(); e.stopPropagation();
+    var box = btn.closest('.test-box');
+    if (!box) return;
+    var vid = box.querySelector('.test-video');
+    if (!vid) return;
+
+    var wasMuted = vid.muted;
+
+    // Mute ALL videos and reset their icons/fade first
+    document.querySelectorAll('.test-box').forEach(function(b) {
+      var v2  = b.querySelector('.test-video');
+      var b2  = b.querySelector('.sound-btn');
+      if (!v2 || !b2) return;
+      v2.muted = true;
+      b2.querySelector('.icon-play').style.display   = '';
+      b2.querySelector('.icon-volume').style.display = 'none';
+      cancelFade(b2);
     });
-  }
 
-  function init() {
-    current = 0;
-    grid.style.transform = '';
-    buildDots();
-    goTo(0);
-    initVideos();
-  }
+    // If THIS was muted → unmute it and start fade
+    if (wasMuted) {
+      vid.muted = false;
+      btn.querySelector('.icon-play').style.display   = 'none';
+      btn.querySelector('.icon-volume').style.display = '';
+      startFade(btn);
+    }
+  }, true);
 
-  window.addEventListener('resize', function() { init(); });
-  init();
+  // Hover: show btn, cancel fade. Mouse leave: restart fade if unmuted
+  document.addEventListener('mouseover', function(e) {
+    var box = e.target.closest ? e.target.closest('.test-box') : null;
+    if (!box) return;
+    var btn = box.querySelector('.sound-btn');
+    if (!btn) return;
+    cancelFade(btn);
+  }, true);
+
+  document.addEventListener('mouseout', function(e) {
+    var box = e.target.closest ? e.target.closest('.test-box') : null;
+    if (!box) return;
+    var btn = box.querySelector('.sound-btn');
+    var vid = box.querySelector('.test-video');
+    if (!btn || !vid) return;
+    // Only re-fade if currently unmuted (volume icon showing)
+    if (!vid.muted) startFade(btn);
+  }, true);
 })();
 
 </script>
