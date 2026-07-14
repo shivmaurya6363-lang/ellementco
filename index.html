@@ -577,6 +577,22 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
 @media (prefers-reduced-motion: reduce) {
   .hero-slide, .test-grid, .minikits-track { transition: none !important; }
 }
+
+/* ── TESTIMONIAL VIDEOS ── */
+.test-box { position: relative; overflow: hidden; }
+.test-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+.test-box.is-playing .test-video { opacity: 1; }
+.test-box.is-playing .play-btn { opacity: 0; pointer-events: none; }
+.play-btn { position: relative; z-index: 2; transition: opacity 0.3s ease; }
 </style>
 </head>
 <body>
@@ -931,12 +947,15 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
   <div class="test-slider-viewport" id="testViewport">
     <div class="test-grid" id="testGrid">
       <div class="test-box">
+        <video class="test-video" src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-videos-graphy-1.MOV" preload="none" playsinline loop></video>
         <button class="play-btn" aria-label="Play testimonial"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button>
       </div>
       <div class="test-box">
+        <video class="test-video" src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-videos-graphy-2.MOV" preload="none" playsinline loop></video>
         <button class="play-btn" aria-label="Play testimonial"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button>
       </div>
       <div class="test-box">
+        <video class="test-video" src="https://cdn.shopify.com/s/files/1/0711/5725/2400/files/ellementco-videos-graphy-3.MOV" preload="none" playsinline loop></video>
         <button class="play-btn" aria-label="Play testimonial"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button>
       </div>
     </div>
@@ -1479,6 +1498,36 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   close.addEventListener('click', closeD);
   overlay.addEventListener('click', closeD);
 })();
+
+/* ── TESTIMONIAL VIDEO PLAY ── */
+document.querySelectorAll('.test-box').forEach(function(box) {
+  var video = box.querySelector('.test-video');
+  var btn = box.querySelector('.play-btn');
+  if (!video) return;
+  // If video fails to load, keep design as-is
+  video.addEventListener('error', function() {
+    video.style.display = 'none';
+  });
+  btn.addEventListener('click', function() {
+    if (box.classList.contains('is-playing')) {
+      video.pause();
+      box.classList.remove('is-playing');
+    } else {
+      // Pause any other playing videos
+      document.querySelectorAll('.test-box.is-playing').forEach(function(b) {
+        b.querySelector('.test-video').pause();
+        b.classList.remove('is-playing');
+      });
+      video.play().then(function() {
+        box.classList.add('is-playing');
+      }).catch(function() {
+        // Autoplay blocked or video not found — keep design as-is
+        box.classList.remove('is-playing');
+      });
+    }
+  });
+});
+
 </script>
 
 </body>
