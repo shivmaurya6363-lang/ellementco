@@ -139,7 +139,7 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .day-number { font-size: 16px; color: #333; position: relative; display: inline-block; padding: 0 4px; }
 /* pink hand-drawn circle around workshop dates */
 .day-number.circled::after { content: ''; position: absolute; top: 50%; left: 50%; width: 40px; height: 26px; border: 2px solid var(--brand-pink); border-radius: 50%; transform: translate(-50%, -50%) rotate(-6deg); }
-.sticky-note { position: absolute; top: 30%; left: 5%; width: 92%; background-color: var(--brand-blue); color: var(--brand-white); padding: 10px 6px 8px; border-radius: 8px; font-size: 10px; font-weight: 700; box-shadow: 3px 5px 10px rgba(0,0,0,0.25); z-index: 10; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.25; }
+.sticky-note { position: absolute; top: 30%; left: 20%; width: 65%; background-color: var(--brand-blue); color: var(--brand-white); padding: 10px 6px 8px; border-radius: 8px; font-size: 13px; font-weight: 700; box-shadow: 3px 5px 10px rgba(0,0,0,0.25); z-index: 10; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.25; }
 .sticky-note span.online-badge { background: var(--brand-cream); color: var(--brand-blue-dark); padding: 2px 8px; border-radius: 10px; font-size: 9px; margin-top: 5px; display: inline-block; font-weight: 700; }
 /* push-pin: dark red head + highlight */
 .pin { position: absolute; top: -8px; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; background: radial-gradient(circle at 35% 30%, #e05c5c, #8e1a1a 70%); border-radius: 50%; box-shadow: 0 3px 4px rgba(0,0,0,0.35); z-index: 11; }
@@ -1083,7 +1083,7 @@ details[open] .faq-icon { transform: rotate(45deg); transition: transform 0.2s; 
 
 <!-- ─── 12. PRODUCTS RANGE (new image, taller) ─── -->
 <section class="products-section">
-  <h2 class="section-title">Ellement Co. products range</h2>
+  <h2 class="section-title">Ellement Co<span style="font-family: Poppins;">.</span> products range</h2>
   <div class="products-media">
     <div class="products-wave products-wave--top" aria-hidden="true">
       <svg viewBox="0 0 1200 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
